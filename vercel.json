@@ -13,7 +13,8 @@
       "src": "front-end/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "front-end/src"
+        "startCommand": "npm start build",
+        "distDir": "front-end/src/dist"
       }
     }
   ],
