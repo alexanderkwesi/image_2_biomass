@@ -1,0 +1,14 @@
+
+## 🚀 Deployment Instructions
+
+### Step 1: Clone and Setup
+```bash
+# Clone your project (replace with actual repository)
+git clone https://github.com/your-username/pasture-biomass-app.git
+cd pasture-biomass-app
+
+# Make scripts executable
+chmod +x setup.sh deploy.sh
+
+# Run initial setup
+./setup.sh

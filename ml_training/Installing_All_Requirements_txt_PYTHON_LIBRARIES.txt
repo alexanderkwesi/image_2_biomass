@@ -1,0 +1,3 @@
+for dir in api-gateway auth-services data-services image-processing-services ml-prediction-services; do
+    cd $dir && pip install -r requirements.txt && cd ..
+done

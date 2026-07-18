@@ -1,0 +1,12 @@
+# Install in development mode
+pip install -e ./api-gateway
+pip install -e ./auth-services
+pip install -e ./data-services
+pip install -e ./image-processing-services  
+pip install -e ./ml-prediction-services
+
+# Install with optional dependencies
+pip install -e "./data-services[postgres]"
+
+# Install development dependencies
+pip install -e ".[dev]"  # From root directory

@@ -1,0 +1,106 @@
+# PastureScan Makefile
+
+.PHONY: help setup deploy start stop restart status logs backup clean
+
+# Default target
+help:
+	@echo "PastureScan Management Commands:"
+	@echo ""
+	@echo "  make setup       - Initial project setup and configuration"
+	@echo "  make deploy-dev  - Deploy to development environment"
+	@echo "  make deploy-prod - Deploy to production environment"
+	@echo "  make start       - Start all services"
+	@echo "  make stop        - Stop all services"
+	@echo "  make restart     - Restart all services"
+	@echo "  make status      - Check service status"
+	@echo "  make logs        - Show service logs"
+	@echo "  make backup      - Create database backup"
+	@echo "  make clean       - Stop services and remove volumes"
+	@echo "  make update      - Update to latest version"
+	@echo ""
+
+# Initial setup
+setup:
+	@echo "Running initial setup..."
+	chmod +x setup.sh
+	./setup.sh
+
+# Deployment targets
+deploy-dev:
+	@echo "Deploying to development environment..."
+	chmod +x deploy.sh
+	./deploy.sh deploy dev
+
+deploy-prod:
+	@echo "Deploying to production environment..."
+	chmod +x deploy.sh
+	./deploy.sh deploy prod
+
+# Service management
+start:
+	@echo "Starting services..."
+	chmod +x deploy.sh
+	./deploy.sh start
+
+stop:
+	@echo "Stopping services..."
+	chmod +x deploy.sh
+	./deploy.sh stop
+
+restart:
+	@echo "Restarting services..."
+	chmod +x deploy.sh
+	./deploy.sh restart
+
+status:
+	@echo "Checking service status..."
+	chmod +x deploy.sh
+	./deploy.sh status
+
+logs:
+	@echo "Showing service logs..."
+	chmod +x deploy.sh
+	./deploy.sh logs $(service)
+
+# Database operations
+backup:
+	@echo "Creating database backup..."
+	chmod +x deploy.sh
+	./deploy.sh backup
+
+# Maintenance
+clean:
+	@echo "Cleaning up..."
+	docker-compose down -v
+	docker system prune -f
+
+update:
+	@echo "Updating to latest version..."
+	chmod +x deploy.sh
+	./deploy.sh update
+
+# Development targets
+dev-logs:
+	@echo "Showing development logs..."
+	docker-compose logs -f
+
+prod-logs:
+	@echo "Showing production logs..."
+	docker-compose -f docker-compose.prod.yml logs -f
+
+build:
+	@echo "Building services..."
+	chmod +x deploy.sh
+	./deploy.sh build
+
+test:
+	@echo "Running tests..."
+	# Add your test commands here
+
+# Quick health check
+health:
+	@curl -f http://localhost:5000/health || echo "API Gateway is not healthy"
+	@curl -f http://localhost:5001/health || echo "Auth Service is not healthy"
+	@curl -f http://localhost:5002/health || echo "Image Service is not healthy"
+	@curl -f http://localhost:5003/health || echo "ML Service is not healthy"
+	@curl -f http://localhost:5004/health || echo "Data Service is not healthy"

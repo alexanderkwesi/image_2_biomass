@@ -1,0 +1,7 @@
+# Use pip's legacy resolver
+pip install --use-deprecated=legacy-resolver -r requirements.txt
+
+
+pip install pillow==9.3.0 
+
+pip install tensorflow==2.13.0

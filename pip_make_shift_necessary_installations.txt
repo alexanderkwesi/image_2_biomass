@@ -1,0 +1,30 @@
+# First install wheel package
+pip install wheel
+
+# Install packages with --only-binary
+pip install --only-binary :all: fastapi uvicorn httpx redis PyJWT pydantic passlib bcrypt python-dotenv psycopg2-binary
+
+# Or if you really need scikit-image, use this:
+pip install --only-binary :all: scikit-image
+
+
+
+pip install --upgrade pydantic
+# or with specific version
+pip install pydantic>=2.0.0
+
+
+
+npm install react-native-webview
+
+
+
+npm install expo-image-picker expo-document-picker
+
+
+npm install react-native-webview
+
+
+npx expo install expo-camera expo-image-manipulator
+# For Expo projects
+npx expo install react-native-web

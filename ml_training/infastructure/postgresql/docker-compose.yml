@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  # Database
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: biomass_db
+      POSTGRES_USER: biomass_user
+      POSTGRES_PASSWORD: biomass_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - biomass-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - biomass-network
+
+  # API Gateway
+  api-gateway:
+    build: ../backend-services/api-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=postgresql://biomass_user:biomass_password@postgres:5432/biomass_db
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - biomass-network
+
+  # Auth Service
+  auth-service:
+    build: ../backend-services/auth-service
+    environment:
+      - DATABASE_URL=postgresql://biomass_user:biomass_password@postgres:5432/biomass_db
+      - JWT_SECRET=your_jwt_secret
+    networks:
+      - biomass-network
+
+  # Image Processing Service
+  image-processing-service:
+    build: ../backend-services/image-processing-service
+    environment:
+      - REDIS_URL=redis://redis:6379
+    networks:
+      - biomass-network
+
+  # ML Prediction Service
+  ml-prediction-service:
+    build: ../backend-services/ml-prediction-service
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MODEL_PATH=/app/trained_models
+    volumes:
+      - ml_models:/app/trained_models
+    networks:
+      - biomass-network
+
+  # Data Service
+  data-service:
+    build: ../backend-services/data-service
+    environment:
+      - DATABASE_URL=postgresql://biomass_user:biomass_password@postgres:5432/biomass_db
+    networks:
+      - biomass-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  ml_models:
+
+networks:
+  biomass-network:
+    driver: bridge
