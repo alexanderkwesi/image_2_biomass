@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/api_gateway/app/main.py",
+      "src": "backend-services/api_gateway/app/main.py",
       "use": "@vercel/python"
     }
   ],
@@ -13,7 +13,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "backend/api_gateway/app/main.py"
+      "dest": "backend-services/api_gateway/app/main.py"
     }
   ]
 }
