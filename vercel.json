@@ -2,12 +2,12 @@
   "version": 2,
   "builds": [
     {
+      "src": "front-end/build/**",
+      "use": "@vercel/static"
+    },
+    {
       "src": "backend-services/api_gateway/app/main.py",
-      "use": "@vercel/python",
-      "config": {
-        "handler": "main.py",
-        "runtime": "python3.9"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -17,7 +17,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "front-end/public/index.html"
+      "dest": "front-end/build/$1"
     }
   ]
 }
