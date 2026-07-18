@@ -4,6 +4,7 @@
   "private": true,
   "author": "Alexander Oluwaseun Kwesi",
   "scripts": {
+    "build": "cd front-end && npm install && npm run build",
     "vercel-build": "cd front-end && npm install && npm run build",
     "start": "cd front-end && npm start",
     "dev": "concurrently \"npm run start:front-end\" \"npm run start-api\" \"npm run python-build\"",
