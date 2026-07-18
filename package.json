@@ -4,8 +4,7 @@
   "private": true,
   "author": "Alexander Oluwaseun Kwesi",
   "scripts": {
-    "build": "cd front-end && npm install && npm run build",
-    "vercel-build": "cd front-end && npm install && npm run build && npx vercel inspect dpl_8VVFeSRgNMaYbn79c8RHjBRwC8nP --logs",
+    "vercel-build": "cd front-end && CI=false npm install && CI=false npm run build",
     "start": "cd front-end && npm start",
     "dev": "concurrently \"npm run start:front-end\" \"npm run start-api\" \"npm run python-build\"",
     "start:front-end": "cd front-end && npm start",
@@ -17,5 +16,17 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
