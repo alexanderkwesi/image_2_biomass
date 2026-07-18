@@ -10,7 +10,6 @@
     "start-api": "cd ./backend-services/api-gateway/app && python -m uvicorn main:app --reload --host 0.0.0.0 --port 5000",
     "reset-project": "node ./scripts/reset-project.js",
     "python-build": "cd backend-services && python database_connection/db_connection.py",
-    "build": "cd ./front-end/ && npm run build",
     "test": "cd ./front-end// && npm test",
     "eject": "cd ./front-end/ && npm run eject"
   },
