@@ -1,14 +1,17 @@
-// front-end/src/App.js
-import { BrowserRouter as Router } from "react-router-dom";
-import "./app.css";
-import AppRoutes from  "./start/app/AuthRoutes"; // Import the consolidated routes
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <AppRoutes />
+      <div className="App">
+        <h1>PastureScan</h1>
+        <Routes>
+          <Route path="/" element={<div>Home Page</div>} />
+        </Routes>
+      </div>
     </Router>
   );
-};
+}
 
 export default App;
