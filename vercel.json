@@ -13,7 +13,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "backend/main.py"
+      "dest": "backend/api_gateway/app/main.py"
     }
   ]
 }
