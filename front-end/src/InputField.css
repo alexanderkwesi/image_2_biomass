@@ -1,0 +1,244 @@
+/* InputField.css */
+.input-field-container {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.input-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary, #333);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.required-asterisk {
+    color: var(--error-color, #f44336);
+    margin-left: 0.25rem;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    background-color: var(--background-color, #fff);
+    padding: 0 0.75rem;
+    transition: all 0.2s ease;
+    min-height: 3rem;
+}
+
+.input-wrapper:hover:not(.disabled) {
+    border-color: var(--primary-hover, #45a049);
+}
+
+.input-wrapper.focused {
+    border-color: var(--primary-color, #4CAF50);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.input-wrapper.error {
+    border-color: var(--error-color, #f44336);
+}
+
+.input-wrapper.error.focused {
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.input-wrapper.disabled {
+    background-color: var(--disabled-bg, #f5f5f5);
+    border-color: var(--disabled-border, #e0e0e0);
+    cursor: not-allowed;
+}
+
+.input-icon {
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+}
+
+.icon-button:hover:not(:disabled) {
+    opacity: 0.7;
+}
+
+.icon-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.input-field {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--text-primary, #333);
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0.75rem 0;
+    width: 100%;
+    min-height: 1.5rem;
+    font-family: inherit;
+}
+
+.input-field.textarea {
+    resize: vertical;
+    min-height: calc(1.5rem * var(--rows, 1));
+    padding: 0.75rem 0;
+    line-height: 1.5;
+}
+
+.input-field::placeholder {
+    color: var(--placeholder-color, #999);
+}
+
+.input-field:disabled {
+    color: var(--disabled-color, #999);
+    cursor: not-allowed;
+}
+
+.password-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+}
+
+.password-toggle:hover:not(:disabled) {
+    opacity: 0.7;
+}
+
+.password-toggle:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.input-message {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    line-height: 1.4;
+}
+
+.input-message.error {
+    color: var(--error-color, #f44336);
+}
+
+.input-message.helper {
+    color: var(--text-secondary, #666);
+}
+
+/* Icon Styles */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon.clickable {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.icon.clickable:hover {
+    opacity: 0.7;
+}
+
+/* CSS Variables for theming */
+:root {
+    --primary-color: #4CAF50;
+    --primary-hover: #45a049;
+    --error-color: #f44336;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --border-color: #ddd;
+    --background-color: #fff;
+    --disabled-bg: #f5f5f5;
+    --disabled-border: #e0e0e0;
+    --disabled-color: #999;
+    --placeholder-color: #999;
+    --icon-color: #666;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #66BB6A;
+        --primary-hover: #81C784;
+        --error-color: #EF5350;
+        --text-primary: #fff;
+        --text-secondary: #ccc;
+        --border-color: #444;
+        --background-color: #2d2d2d;
+        --disabled-bg: #3d3d3d;
+        --disabled-border: #555;
+        --disabled-color: #777;
+        --placeholder-color: #888;
+        --icon-color: #ccc;
+    }
+}
+
+/* Focus styles for accessibility */
+.input-field:focus-visible,
+.icon-button:focus-visible,
+.password-toggle:focus-visible {
+    outline: 2px solid var(--primary-color, #4CAF50);
+    outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .input-wrapper {
+        min-height: 2.75rem;
+    }
+
+    .input-field {
+        font-size: 0.9375rem;
+    }
+
+    .input-label {
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-wrapper {
+        min-height: 2.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .input-field {
+        font-size: 0.875rem;
+        padding: 0.5rem 0;
+    }
+
+    .input-field.textarea {
+        padding: 0.5rem 0;
+    }
+
+    .icon-button,
+    .password-toggle {
+        padding: 0.125rem;
+        margin-left: 0.25rem;
+    }
+
+    .input-icon {
+        margin-right: 0.25rem;
+    }
+}

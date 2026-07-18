@@ -1,0 +1,477 @@
+/* Camera Screen Styles */
+.camera-screen {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.camera-screen-loading {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner {
+    margin-bottom: 20px;
+}
+
+.spinner-icon {
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    font-size: 18px;
+}
+
+/* Camera Container */
+.camera-container {
+    position: relative;
+    height: 100vh;
+}
+
+/* User Info */
+.user-info-container {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.user-info-container>* {
+    pointer-events: auto;
+}
+
+.user-info,
+.login-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.user-info:hover,
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logout-button {
+    padding: 4px 10px;
+    border-radius: 15px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+    opacity: 0.9;
+}
+
+/* Theme Selector */
+.theme-selector {
+    display: flex;
+    padding: 5px;
+    border-radius: 20px;
+    gap: 5px;
+}
+
+.theme-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.theme-button:hover {
+    transform: scale(1.1);
+}
+
+.theme-button.active {
+    border: 2px solid #FFF;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Position Selector */
+.position-selector-container {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 0 20px;
+    backdrop-filter: blur(10px);
+}
+
+.position-selector-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.position-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.position-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 100px;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.position-button:hover {
+    transform: translateY(-2px);
+}
+
+.position-button.active {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mode Selector */
+.mode-selector-container {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 0 20px;
+    backdrop-filter: blur(10px);
+}
+
+.mode-selector-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.mode-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.mode-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 80px;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.mode-button:hover {
+    transform: translateY(-2px);
+}
+
+.mode-button.active {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Preview Container */
+.preview-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.preview-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.preview-subtitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.device-info-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.user-info-text {
+    font-size: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.use-button,
+.retake-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.use-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.retake-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 280px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content .spinner-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.camera-note {
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 6px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Help Button */
+.help-button {
+    position: absolute;
+    top: 100px;
+    right: 15px;
+    padding: 8px 15px;
+    border-radius: 15px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.help-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Debug Button */
+.debug-button {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 11px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.debug-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .position-selector-container,
+    .mode-selector-container {
+        margin: 0 10px;
+        padding: 10px;
+    }
+
+    .position-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .position-button {
+        width: 100%;
+    }
+
+    .mode-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .mode-button {
+        width: 100%;
+    }
+
+    .user-info-container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .theme-selector {
+        align-self: center;
+    }
+
+    .use-button,
+    .retake-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .theme-button {
+        background-color: #555;
+    }
+}

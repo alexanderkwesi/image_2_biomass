@@ -1,0 +1,487 @@
+/* FarmManagementScreen.css */
+.farm-management-screen {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #4CAF50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #666;
+  margin-top: 20px;
+}
+
+.header {
+  background-color: #4CAF50;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  margin-bottom: 25px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.back-button, .add-button {
+  padding: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.back-button:hover, .add-button:hover {
+  opacity: 0.8;
+}
+
+.header-title {
+  font-size: 34px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
+}
+
+.profile-card {
+  background-color: #fff;
+  margin: 25px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  margin-top: 0;
+}
+
+.user-email {
+  font-size: 22px;
+  color: #666;
+  font-weight: 500;
+  margin: 0;
+}
+
+.stats-section {
+  margin: 0 25px 30px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: #666;
+  font-weight: 600;
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 20px 0 8px;
+  letter-spacing: 0.5px;
+  padding: 0 25px;
+}
+
+.subtitle-text {
+  font-size: 20px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 500;
+  padding: 0 25px;
+}
+
+.farms-list {
+  padding: 0 25px 40px;
+}
+
+.farms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.farm-card {
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.farm-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.farm-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.farm-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.farm-text {
+  margin-left: 18px;
+  flex: 1;
+}
+
+.farm-name {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.farm-details {
+  font-size: 20px;
+  color: #666;
+  font-weight: 500;
+  margin: 0;
+}
+
+.farm-status {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.farm-status.active {
+  background-color: #4CAF50;
+}
+
+.farm-status.inactive {
+  background-color: #666;
+}
+
+.status-text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.farm-card-content {
+  padding: 25px;
+}
+
+.farm-description {
+  font-size: 20px;
+  color: #666;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+
+.farm-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 15px;
+}
+
+.meta-text {
+  font-size: 18px;
+  color: #666;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.farm-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 15px;
+  border: 2px solid #E0E0E0;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-btn:hover {
+  border-color: #2196F3;
+  background-color: rgba(33, 150, 243, 0.05);
+}
+
+.edit-btn:hover {
+  border-color: #666;
+  background-color: rgba(102, 102, 102, 0.05);
+}
+
+.delete-btn:hover {
+  border-color: #f44336;
+  background-color: rgba(244, 67, 54, 0.05);
+}
+
+.action-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 30px;
+  text-align: center;
+}
+
+.empty-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin: 25px 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.empty-text {
+  font-size: 22px;
+  color: #666;
+  margin-bottom: 35px;
+  line-height: 32px;
+  font-weight: 500;
+  max-width: 600px;
+}
+
+.add-btn-large {
+  display: flex;
+  align-items: center;
+  background-color: #4CAF50;
+  padding: 20px 35px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn-large:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.add-btn-text {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 12px;
+  letter-spacing: 0.5px;
+}
+
+.refresh-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.refresh-button {
+  padding: 15px 30px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background-color: #1976D2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.refresh-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 28px;
+  }
+  
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .farms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .avatar-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .avatar {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  .user-name {
+    font-size: 28px;
+  }
+  
+  .user-email {
+    font-size: 20px;
+  }
+  
+  .farm-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .header-title {
+    order: -1;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-text {
+    font-size: 24px;
+  }
+  
+  .subtitle-text {
+    font-size: 18px;
+  }
+}

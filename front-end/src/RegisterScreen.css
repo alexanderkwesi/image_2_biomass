@@ -1,0 +1,361 @@
+/* RegisterScreen.css */
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.register-content {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-leaf-icon {
+    font-size: 60px;
+    color: #4CAF50;
+    display: block;
+}
+
+.register-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 16px 0 0;
+}
+
+.register-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin: 8px 0 0;
+}
+
+.register-form {
+    width: 100%;
+}
+
+.register-name-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.register-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    padding: 0 16px;
+    height: 56px;
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.3s ease;
+}
+
+.register-input-container:focus-within {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.register-input-error {
+    border-color: #f44336;
+}
+
+.register-input-error:focus-within {
+    border-color: #f44336;
+}
+
+.register-half-input {
+    flex: 1;
+    min-width: 0;
+}
+
+.register-icon {
+    font-size: 20px;
+    color: #666;
+    flex-shrink: 0;
+}
+
+.register-input {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-left: 12px;
+    height: 100%;
+}
+
+.register-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.register-eye-button {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-eye-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.register-error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 12px;
+    color: #f44336;
+    margin-top: 4px;
+    padding: 0 16px;
+}
+
+.register-terms-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    padding: 4px 0;
+}
+
+.register-terms-error .register-checkbox {
+    border-color: #f44336;
+}
+
+.register-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 2px solid #4CAF50;
+    background: transparent;
+    margin-right: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.register-checkbox:hover:not(:disabled) {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.register-checkbox-checked {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.register-checkbox:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.register-checkmark {
+    font-size: 16px;
+    color: #fff;
+}
+
+.register-terms-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+    flex: 1;
+}
+
+.register-terms-link {
+    background: none;
+    border: none;
+    color: #4CAF50;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.register-terms-link:hover:not(:disabled) {
+    color: #45a049;
+}
+
+.register-terms-link:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.register-button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.register-button:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+.register-button:disabled {
+    background-color: #A5D6A7;
+    cursor: not-allowed;
+}
+
+.register-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: registerSpin 1s linear infinite;
+}
+
+@keyframes registerSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.register-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.register-login-text {
+    color: #666;
+    font-size: 14px;
+}
+
+.register-login-link {
+    background: none;
+    border: none;
+    color: #4CAF50;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.register-login-link:hover:not(:disabled) {
+    text-decoration: underline;
+}
+
+.register-login-link:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .register-container {
+        padding: 16px;
+    }
+
+    .register-name-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .register-half-input {
+        width: 100%;
+    }
+
+    .register-title {
+        font-size: 24px;
+    }
+
+    .register-subtitle {
+        font-size: 14px;
+    }
+
+    .register-input-container {
+        height: 48px;
+    }
+
+    .register-button {
+        height: 48px;
+        font-size: 15px;
+    }
+}
+
+/* Focus states for accessibility */
+.register-input:focus,
+.register-button:focus,
+.register-checkbox:focus,
+.register-terms-link:focus,
+.register-login-link:focus,
+.register-eye-button:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .register-container {
+        background-color: #121212;
+    }
+
+    .register-title {
+        color: #fff;
+    }
+
+    .register-subtitle {
+        color: #ccc;
+    }
+
+    .register-input-container {
+        background-color: #2d2d2d;
+        border-color: #404040;
+    }
+
+    .register-input {
+        color: #fff;
+    }
+
+    .register-input::placeholder {
+        color: #888;
+    }
+
+    .register-icon {
+        color: #888;
+    }
+
+    .register-terms-text {
+        color: #ccc;
+    }
+
+    .register-login-text {
+        color: #ccc;
+    }
+}

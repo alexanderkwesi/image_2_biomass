@@ -1,0 +1,242 @@
+/* LoadingSpinner.css */
+.loading-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loading-modal-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-modal-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-container {
+    background-color: var(--loading-bg, #FFFFFF);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    max-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: loadingFadeIn 0.3s ease;
+}
+
+.loading-small .loading-container {
+    padding: 16px;
+    min-width: 150px;
+}
+
+.loading-medium .loading-container {
+    padding: 20px;
+    min-width: 180px;
+}
+
+/* Spinner animation */
+@keyframes loadingSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    border: 4px solid;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: loadingSpin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+.loading-small .loading-spinner {
+    border-width: 3px;
+    margin-bottom: 12px;
+}
+
+.loading-medium .loading-spinner {
+    margin-bottom: 14px;
+}
+
+/* Icon styles */
+.loading-icon-container {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.loading-small .loading-icon-container {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+}
+
+.loading-medium .loading-icon-container {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 14px;
+}
+
+.loading-checkmark,
+.loading-error-icon {
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+}
+
+.loading-small .loading-checkmark,
+.loading-small .loading-error-icon {
+    font-size: 24px;
+}
+
+.loading-medium .loading-checkmark,
+.loading-medium .loading-error-icon {
+    font-size: 28px;
+}
+
+/* Dots animation */
+.loading-dots-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.loading-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    animation: loadingDotPulse 1.4s ease-in-out infinite;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loadingDotPulse {
+
+    0%,
+    60%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    30% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+/* Text styles */
+.loading-text-container {
+    text-align: center;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.loading-text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.loading-small .loading-text {
+    font-size: 16px;
+}
+
+.loading-medium .loading-text {
+    font-size: 17px;
+}
+
+.loading-subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--loading-subtitle-color, #666666);
+}
+
+/* Progress bar */
+.loading-progress-container {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.loading-progress-background {
+    height: 6px;
+    background-color: var(--loading-progress-bg, #E5E5EA);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.loading-progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.loading-progress-text {
+    font-size: 12px;
+    color: var(--loading-progress-text, #666666);
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* Spinner only mode */
+.loading-spinner-only {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+
+.loading-spinner-only-text {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Fade in animation */
+@keyframes loadingFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Accessibility */
+.loading-modal:focus {
+    outline: 2px solid var(--loading-primary, #007AFF);
+    outline-offset: 2px;
+}

@@ -1,0 +1,60 @@
+{
+    "compilerOptions": {
+        "baseUrl": "front-end/",
+        "paths": {
+            "@src": ["src/"],
+            // Components aliases
+            "@components/*": [
+                "components/*"
+            ],
+            "@components/routes/*": [
+                "components/routes/*"
+            ],
+            "@components/Layouts/*": [
+                "components/Layouts/*"
+            ],
+            // Screens/pages - based on your import patterns
+            "@screens/*": [
+                "components/*"
+            ], // Since screens are in components folder
+            "@pages/*": [
+                "pages/*"
+            ],
+            // Feature-based folders (from your imports)
+            "@profile/*": [
+                "profile/*"
+            ],
+            "@settings/*": [
+                "settings/*"
+            ],
+            "@contexts/*": [
+                "contexts/*"
+            ],
+            "@constants/*": [
+                "constants/*"
+            ],
+            // Utilities and services
+            "@utils/*": [
+                "utils/*"
+            ],
+            "@services/*": [
+                "services/*"
+            ],
+            // Assets
+            "@assets/*": [
+                "assets/*"
+            ],
+            "@styles/*": [
+                "styles/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "build",
+        "dist"
+    ]
+}
