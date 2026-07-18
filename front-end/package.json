@@ -1,20 +1,18 @@
 {
   "name": "pasturescan-frontend",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
-  "main": "node_modules/expo/AppEntry.js",
-  "scripts": {
-    "start": "expo start",
-    "build": "expo export:web",
-    "web": "expo start --web",
-    "vercel-build": "expo export:web"
-  },
   "dependencies": {
-    "expo": "~50.0.0",
-    "expo-router": "^3.4.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.73.0",
-    "react-native-web": "~0.19.6"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "react-scripts": "5.0.1",
+    "axios": "^1.6.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   }
 }
