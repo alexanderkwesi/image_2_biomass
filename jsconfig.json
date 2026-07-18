@@ -11,9 +11,8 @@
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"],
       "@services/*": ["services/*"],
-      "@start/*": ["start/*"],
       "@src/*": ["src/*"]
     }
   },
-  "exclude": ["node_modules", "build", "dist"]
+  "exclude": ["node_modules", "build"]
 }
