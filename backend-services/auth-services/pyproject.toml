@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auth-services"
+version = "1.0.0"
+description = "Authentication and authorization services"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+dependencies = [
+    "fastapi==0.104.0",
+    "uvicorn[standard]==0.24.0",
+    "asyncpg==0.29.0",
+    "python-jose[cryptography]==3.3.0",
+    "passlib[bcrypt]==1.7.4",
+    "python-multipart==0.0.6",
+    "python-dotenv==1.0.0",
+    "pydantic==2.4.2",
+    "email-validator==2.1.0",
+]
+requires-python = ">=3.8"
+
+[project.scripts]
+auth-service = "auth_services.main:app"

@@ -1,0 +1,217 @@
+AUTH SERVICE SCHEMAS
+
+
+
+# auth-services/app/main.py
+from pydantic import BaseModel, EmailStr, validator, root_validator
+from typing import Optional, Dict, Any
+from datetime import datetime
+
+class UserRegister(BaseModel):
+    first_name: str
+    last_name: str
+    email: EmailStr
+    password: str
+    confirm_password: str
+    
+    @validator('first_name', 'last_name')
+    def name_must_not_be_empty(cls, v):
+        if not v.strip():
+            raise ValueError('Name cannot be empty')
+        return v.strip()
+    
+    @validator('password')
+    def password_must_be_strong(cls, v):
+        if len(v) < 6:
+            raise ValueError('Password must be at least 6 characters long')
+        return v
+    
+    @root_validator
+    def passwords_match(cls, values):
+        password = values.get('password')
+        confirm_password = values.get('confirm_password')
+        if password and confirm_password and password != confirm_password:
+            raise ValueError('Passwords do not match')
+        return values
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+class UserResponse(BaseModel):
+    id: str
+    first_name: str
+    last_name: str
+    email: str
+    is_verified: bool
+    created_at: datetime
+
+class AuthResponse(BaseModel):
+    success: bool
+    message: str
+    access_token: Optional[str] = None
+    token_type: Optional[str] = None
+    user: Optional[UserResponse] = None
+
+class ErrorResponse(BaseModel):
+    success: bool
+    detail: str
+
+class TokenData(BaseModel):
+    user_id: Optional[str] = None
+    email: Optional[str] = None
+
+class TokenVerify(BaseModel):
+    token: str
+
+
+
+
+
+
+
+    IMAGE PROCESSING SCHEMAS
+
+
+
+    # image-processing-service/schemas.py
+from pydantic import BaseModel
+from typing import Optional, Dict, Any, List
+from datetime import datetime
+
+class ImageUploadRequest(BaseModel):
+    user_id: str
+    image_data: str  # base64 encoded image
+    file_name: str
+    mime_type: str
+
+class ImageValidationRequest(BaseModel):
+    user_id: str
+    image_id: str
+    validation_rules: Optional[Dict[str, Any]] = None
+
+class ImageUploadResponse(BaseModel):
+    success: bool
+    image_id: str
+    image_url: str
+    message: str
+    validation_result: Optional[Dict[str, Any]] = None
+
+class ImageValidationResponse(BaseModel):
+    success: bool
+    is_valid: bool
+    validation_errors: List[str] = []
+    image_metadata: Dict[str, Any]
+
+
+
+
+
+
+
+    ML PREDICTION SERVIE SCHEMAS
+
+
+
+
+    # ml-prediction-service/schemas.py
+from pydantic import BaseModel
+from typing import Optional, Dict, Any, List
+from datetime import datetime
+from enum import Enum
+
+class PredictionType(str, Enum):
+    BIOMASS_ESTIMATION = "biomass_estimation"
+    PLANT_HEALTH = "plant_health"
+    SPECIES_DETECTION = "species_detection"
+
+class PredictionRequest(BaseModel):
+    user_id: str
+    image_id: str
+    prediction_type: PredictionType
+    model_parameters: Optional[Dict[str, Any]] = None
+
+class PredictionResponse(BaseModel):
+    success: bool
+    prediction_id: str
+    prediction_type: str
+    prediction_data: Dict[str, Any]
+    confidence_score: Optional[float] = None
+    model_version: str
+    processing_time_ms: int
+    status: str
+
+class BiomassEstimationData(BaseModel):
+    biomass_kg_per_hectare: float
+    vegetation_coverage: float
+    plant_height_cm: Optional[float] = None
+    confidence_interval: Dict[str, float]
+
+class PlantHealthData(BaseModel):
+    health_score: float
+    disease_detected: bool
+    disease_types: List[str]
+    nutrient_deficiencies: List[str]
+    recommendations: List[str]
+
+class SpeciesDetectionData(BaseModel):
+    detected_species: List[Dict[str, Any]]
+    dominant_species: str
+    biodiversity_index: float
+
+
+
+
+
+
+    DATA SERVICE SCHEMAS
+
+
+
+
+    # data-service/schemas.py
+from pydantic import BaseModel
+from typing import Optional, Dict, Any, List
+from datetime import datetime
+
+class PredictionHistoryRequest(BaseModel):
+    user_id: str
+    limit: int = 50
+    offset: int = 0
+
+class PredictionHistoryResponse(BaseModel):
+    success: bool
+    predictions: List[Dict[str, Any]]
+    total_count: int
+    has_more: bool
+
+class UserProfileResponse(BaseModel):
+    user: UserResponse
+    stats: Dict[str, Any]
+    recent_predictions: List[Dict[str, Any]]
+
+
+
+
+
+    API GATEWAY SCHEMAS
+
+
+
+    # api-gateway/app/main.py
+from pydantic import BaseModel
+from typing import Dict, Any, Optional
+
+class HealthCheckResponse(BaseModel):
+    status: str
+    service: str
+    timestamp: str
+    response_time: Optional[float] = None
+
+class RateLimitConfig(BaseModel):
+    max_requests: int = 100
+    window_seconds: int = 3600
+
+class CacheConfig(BaseModel):
+    prediction_ttl: int = 3600  # 1 hour
+    image_ttl: int = 1800      # 30 minutes

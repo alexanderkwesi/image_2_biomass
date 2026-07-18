@@ -1,0 +1,9 @@
+set PYTHONIOENCODING=utf-8
+
+
+
+//// run ////
+
+
+# Find all lines with Unicode emojis in your file
+Select-String -Path "db_connection.py" -Pattern "\\u[0-9a-fA-F]{4}|✅|❌|⚠️"

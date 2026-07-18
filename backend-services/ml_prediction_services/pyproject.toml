@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-prediction-services"
+version = "1.0.0"
+description = "Machine learning prediction services"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+dependencies = [
+    "fastapi==0.104.0",
+    "uvicorn[standard]==0.24.0",
+    "tensorflow==2.13.0",
+    "numpy==1.24.3",
+    "opencv-python==4.8.1.78",
+    "Pillow==10.1.0",
+    "redis==5.0.1",
+    "scikit-learn==1.3.1",
+    "pandas==2.1.2",
+    "joblib==1.3.2",
+    "python-dotenv==1.0.0",
+]
+requires-python = ">=3.8"
+
+[project.scripts]
+ml-service = "ml_prediction_services.main:app"

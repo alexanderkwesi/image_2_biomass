@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data-services"
+version = "1.0.0"
+description = "Data services with PostgreSQL and Redis"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+dependencies = [
+    "fastapi==0.104.0",
+    "uvicorn[standard]==0.24.0",
+    "asyncpg==0.29.0",
+    "redis==5.0.1",
+    "python-dotenv==1.0.0",
+    "pydantic==2.4.2",
+    "alembic==1.12.1",
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+postgres = ["psycopg2-binary==2.9.9"]
+
+[project.scripts]
+data-service = "data_services.main:app"
+migrate = "data_services.migrations:main"
